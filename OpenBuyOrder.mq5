@@ -15,3 +15,4 @@ void OpenBuyOrder()
    request.deviation = 50;
    OrderSend(request, result);
    double lastEquity = AccountInfoDouble(ACCOUNT_EQUITY);
+}
