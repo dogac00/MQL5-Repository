@@ -1,17 +1,4 @@
 
-int GetTextType(string text)
-{
-  char chars[];
-  
-  StringToCharArray(text, chars);
-  
-  for (int i = 0; i < ArraySize(chars); i++)
-    if (chars[i] < 0)
-      return FILE_UNICODE;
-  
-  return FILE_ANSI;
-}
-
 int GetFileType(string file_name)
 {
   if (StringFind(file_name, ".csv") != -1)
@@ -31,9 +18,8 @@ int GetFileType(string file_name)
 void WriteAllText(string file_name, string text)
 {
   int file_type = GetFileType(file_name);
-  int text_type = GetTextType(file_name);
-
-  int handle = FileOpen(file_name, text_type | file_type | FILE_WRITE);
+  
+  int handle = FileOpen(file_name, file_type | FILE_ANSI | FILE_WRITE);
   
   if (handle == INVALID_HANDLE)
     return;
@@ -47,9 +33,8 @@ void WriteAllText(string file_name, string text)
 void AppendAllText(string file_name, string text)
 {
   int file_type = GetFileType(file_name);
-  int text_type = GetTextType(file_name);
-
-  int handle = FileOpen(file_name, text_type | file_type | FILE_READ | FILE_WRITE);
+  
+  int handle = FileOpen(file_name, file_type | FILE_ANSI | FILE_READ | FILE_WRITE);
   
   if (handle == INVALID_HANDLE)
     return;
@@ -64,9 +49,8 @@ void AppendAllText(string file_name, string text)
 string ReadAllText(string file_name)
 {
   int file_type = GetFileType(file_name);
-  int text_type = GetTextType(file_name);
-
-  int handle = FileOpen(file_name, text_type | file_type | FILE_READ);
+  
+  int handle = FileOpen(file_name, file_type | FILE_ANSI | FILE_READ);
   
   if (handle == INVALID_HANDLE)
     return "";
