@@ -70,6 +70,11 @@ string ReadAllText(string file_name)
   
   if (handle == INVALID_HANDLE)
     return "";
+  
+  string str = "";
     
-  return FileReadString(handle);
+  while (!FileIsEnding(handle))
+    str += FileReadString(handle) + "\n";
+    
+  return str;
 }
