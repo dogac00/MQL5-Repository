@@ -14,7 +14,7 @@ bool ArrayAppend(T &dest[], T &src[])
 }
 
 template<typename T>
-void ArrayRemoveAll(T const & src_arr [], T & dest_arr [], T to_be_removed)
+void ArrayRemoveAll(T const &dest_arr [], T &src_arr [], T to_be_removed)
 {
   int count = ArrayGetCount(src_arr, to_be_removed);
   
