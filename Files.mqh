@@ -1,5 +1,14 @@
 
-int GetFileType(string file_name)
+class File
+{
+  public:
+    int GetFileType(string file_name);
+    void WriteAllText(string file_name, string text);
+    void AppendAllText(string file_name, string text);
+    string ReadAllText(string file_name);
+};
+
+int File::GetFileType(string file_name)
 {
   if (StringFind(file_name, ".csv") != -1)
     return FILE_CSV;
@@ -15,7 +24,7 @@ int GetFileType(string file_name)
   return -1;
 }
 
-void WriteAllText(string file_name, string text)
+void File::WriteAllText(string file_name, string text)
 {
   int file_type = GetFileType(file_name);
   
@@ -30,7 +39,7 @@ void WriteAllText(string file_name, string text)
   FileClose(handle);
 }
 
-void AppendAllText(string file_name, string text)
+void File::AppendAllText(string file_name, string text)
 {
   int file_type = GetFileType(file_name);
   
@@ -46,7 +55,7 @@ void AppendAllText(string file_name, string text)
   FileClose(handle);
 }
 
-string ReadAllText(string file_name)
+string File::ReadAllText(string file_name)
 {
   int file_type = GetFileType(file_name);
   
