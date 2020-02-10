@@ -1,4 +1,16 @@
 
+// To write to a file, call it like this:
+// File::WriteAllText("MyFile.csv", contents);
+
+// To read from a file, call it like this:
+// string contents = File::ReadAllText("MyFile.txt");
+
+// To append to a file, call it like this:
+// File::AppendAllText("MyFile.bin", contents);
+
+// All files must be in the Files folder in Metaeditor
+// Only relative paths (just file names) can be used here
+
 class File
 {
   public:
