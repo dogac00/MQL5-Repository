@@ -9,6 +9,7 @@
 // File::AppendAllText("MyFile.bin", contents);
 
 // All files must be in the Files folder in Metaeditor
+// (for strategy testers look for the tester file in the terminal folder)
 // Only relative paths (just file names) can be used here
 
 class File
